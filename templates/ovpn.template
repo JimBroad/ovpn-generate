@@ -1,20 +1,22 @@
+;auth SHA512
+;cipher AES-256-CBC
 client
-
+comp-lzo
 dev tun
-proto udp
-remote {{servername}}
-
-resolv-retry infinite
+;key-direction 1
 nobind
-
 persist-key
 persist-tun
-
-verb 1
-
-keepalive 10 900
-inactive 3600
-comp-lzo
+port {{ server_port }}
+proto {{ server_proto }}
+pull
+remote {{ server_address }}
+;remote-cert-tls server
+resolv-retry infinite
+;route-metric 1
+;tls-version-min 1.2
+;tls-client
+;tls-cipher TLS-DHE-RSA-WITH-AES-256-GCM-SHA384:TLS-DHE-RSA-WITH-AES-256-CBC-SHA256:TLS-DHE-RSA-WITH-AES-128-GCM-SHA256:TLS-DHE-RSA-WITH-AES-128-CBC-SHA256
 
 <ca>
 {{cacert}}</ca>
@@ -22,4 +24,9 @@ comp-lzo
 {{usercert}}</cert>
 <key>
 {{userkey}}</key>
+
+{% if tlsauth %}
+<tls-auth>
+{{ tlsauth }}</tls-auth>
+{% endif %}
 

@@ -1,0 +1,17 @@
+OVPN_SERVER_ADDRESS = '127.0.0.1'
+OVPN_SERVER_PORT = '1194'
+OVPN_SERVER_PROTO = 'tcp'
+OVPN_FILENAME_PREFIX = 'client-'
+OVPN_FILENAME_SUFFIX = ''
+
+OVPN_TEMPLATE = 'templates/ovpn_local.template'
+
+OVPN_FILE_DESTINATION = '/home/<user>/'
+
+OVPN_TLS_AUTH_ENABLED = True
+OVPN_TLS_AUTH_FILE = "/usr/share/easy-rsa/3/pki/ta.key"
+
+EASYRSA_CERT_FILE = '/usr/share/easy-rsa/3/pki/ca.crt' 
+EASYRSA_CLIENT_CERT_DIR = '/usr/share/easy-rsa/3/pki/issued/' 
+EASYRSA_CLIENT_KEY_DIR = '/usr/share/easy-rsa/3/pki/private/'
+
