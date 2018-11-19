@@ -54,7 +54,6 @@ try:
         open(tlsauth) as tafile, \
         open(ovpn_filename, 'w') as outfile:
 
-
         context = {
             'cacert': cafile.read(),
             'usercert': certfile.read(),
@@ -64,7 +63,6 @@ try:
             'server_proto': config.OVPN_SERVER_PROTO,
             'server_address': config.OVPN_SERVER_ADDRESS,
          }
-
 
         model = Template(ovpntemplate.read())
         outfile.write(model.render(context))
